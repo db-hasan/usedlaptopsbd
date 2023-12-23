@@ -1,12 +1,11 @@
 
-import { RouterLink } from 'vue-router';
 <template>
-<div class="">
+  <div class="">
     <div class="text-end">
-        <RouterLink to="" class="btn btn-sm btn-dark"><i class="fas fa-plus-circle"></i> View Data</RouterLink>
+      <RouterLink to="" class="btn btn-sm btn-dark"><i class="fas fa-plus-circle"></i> View Data</RouterLink>
     </div>
     <hr>
-    
+
     <form method="post" action="" class="row g-3 p-3">
 
       <div class="col-md-6 pb-3">
@@ -19,6 +18,5 @@ import { RouterLink } from 'vue-router';
       </div>
     </form>
 
-</div>
-
+  </div>
 </template>
