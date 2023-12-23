@@ -1,32 +1,47 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import FrontlayoutsViewVue from '@/views/frontend/layouts/LayoutsView.vue'
 import HomeView from '../views/HomeView.vue'
+import ContactViewVue from '@/views/backend/ContactView.vue'
+
+import BacklayoutsViewVue from '@/views/backend/layouts/LayoutsView.vue'
 import DashboardView from '../views/DashboardView.vue'
+import AboutViewVue from '@/views/frontend/AboutView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView
+      component: FrontlayoutsViewVue,
+      children: [
+        {
+          path: '', 
+          component: HomeView,
+        },
+        {
+          path: 'contact',
+          name: 'contact',
+          component: ContactViewVue,
+        },
+      ],
     },
+    // This is Back end Part...
     {
       path: '/dashboard',
-      name: 'dashboard',
-      component: DashboardView
+      component: BacklayoutsViewVue,
+      children: [
+        {
+          path: '/dashboard', 
+          component: DashboardView,
+        },
+        {
+          path: 'about',
+          name: 'about',
+          component: AboutViewVue,
+        },
+      ],
     },
-    {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/frontend/AboutView.vue')
-    },
-    
-    {
-      path: '/contact',
-      name: 'contact',
-      component: () => import('../views/frontend/ContactView.vue')
-    }
-  ]
+  ],
 })
 
 export default router
