@@ -1,3 +1,5 @@
 @import './base.css';
-@import 'bootstrap';
+@import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../assets/backend/css/jquery.dataTables.css';
+@import '../assets/backend/css/style.css'
 

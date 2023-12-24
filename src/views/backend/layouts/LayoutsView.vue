@@ -108,7 +108,7 @@
             <div class="header d-flex fixed-top">
                 <div class="logo text-center">
                     <h3>
-                        <RouterLink to="#">Softxone</RouterLink>
+                        <RouterLink to="#">SoftxOne</RouterLink>
                     </h3>
                 </div>
                 <div class="toggle">
