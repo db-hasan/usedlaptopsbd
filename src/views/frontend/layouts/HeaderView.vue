@@ -4,7 +4,7 @@
       <div class="content">
         <div class="d-flex justify-content-between">
           <div class="header_logo p-2" style="width: 25%">
-            <RouterLink to="">RAYNS</RouterLink>
+            <RouterLink to="">SoftxOne</RouterLink>
           </div>
           <div class="header_search p-2" style="width: 50%">
             <div class="search">
