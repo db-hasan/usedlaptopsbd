@@ -6,7 +6,7 @@
         </div>
         <hr>
         <div class="custom-scrollbar-table">
-            <table id="myTable" class="display">
+            <table id="myTable" class="table">
                 <thead>
                     <tr>
                         <th><span class="">ID</span></th>
@@ -32,7 +32,5 @@
             </table>
         </div>
     </div>
-
-    <!-- <script src="{{asset('backend/js/jquery-3.7.1.min.js') }} "></script>
-<script src="{{asset('backend/js/dataTables.js') }} "></script> -->
 </template>
+
