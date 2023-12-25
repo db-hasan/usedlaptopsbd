@@ -54,13 +54,6 @@ h6 {
 
 
 /* header start */
-.navigation_contact a {
-    color: var(--white) !important;
-}
-
-.navigation_contact a:hover {
-    color: var(--hover) !important;
-}
 
 .header_logo a {
     color: var(--hover) !important;
@@ -128,14 +121,15 @@ body {
 
 .navbar {
     --bs-navbar-padding-y: 5px !important;
+    text-align: center !important;
 }
 
-.navbar li:hover {
-    background-color: var(--hover);
+.navbar li a:hover {
+    color: var(--hover) !important;
 }
 
 .navbar li a {
-    font-size: 14px;
+    font-size: 18x;
     font-weight: bold;
 }
 

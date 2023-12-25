@@ -47,6 +47,41 @@
       </div>
     </div>
 
+    <div class="content bg-light">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid text-center">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item"><a class="nav-link" href="#">Apple</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Microsoft</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">HP</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Lenovo</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Acer</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Asus</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Dell</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Walton</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Gigabyte</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Huawei</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">MSI</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Xiaomi</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Realme</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
     <!-- Cart template start -->
     <div class="cart-container" id="cartContainer">
       <div class="d-flex justify-content-between mb-3">
