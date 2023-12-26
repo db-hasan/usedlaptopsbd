@@ -103,85 +103,151 @@
       <div class="row g-2 pt-3">
         <div class="col">
           <div class="card h-100">
-            <img src="../assets/images/laptop.png" class="card-img-top" alt="..." />
+            <div class="overflow-hidden">
+              <img
+                src="https://www.ryanscomputers.com/storage/products/small/hp-15s-fq3617tu-intel-cdc-n4500-156-inch-fhd-11685250268.webp"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="product-btn">
+                <a class="m-1 cart" target="_blank" href="#"
+                  ><i class="fa-solid fa-cart-arrow-down"></i
+                ></a>
+                <a class="m-1 love" target="_blank" href="#"><i class="fa-solid fa-heart"></i></a>
+                <a class="m-1 view" target="_blank" href="#"><i class="fa-solid fa-eye"></i></a>
+              </div>
+            </div>
             <div class="card-body text-center">
-              <h5 class="card-title"><a href="">Card title</a></h5>
+              <h5 class="card-title p-2"><a href="">Card title</a></h5>
               <p class="card-text des">
                 <a href="">Intel 14th Gen Raptor Lake Refresh Core i9 14 ...</a>
               </p>
-              <p class="card-text price pb-3">Tk 69,500</p>
-            </div>
-            <div class="d-flex justify-content-center py-2">
-              <a class="px-2 cart" href="" target="_blank"
-                ><i class="fa-solid fa-cart-arrow-down fa-xl"></i
-              ></a>
-              <a class="px-2 love" href="" target="_blank"
-                ><i class="fa-solid fa-heart fa-xl"></i
-              ></a>
-              <a class="px-2 view" target="_blank">
-                <i class="fa-solid fa-eye fa-xl"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card h-100">
-            <img src="../assets/images/laptop.png" class="card-img-top" alt="..." />
-            <div class="card-body text-center">
-              <h5 class="card-title"><a href="">Card title</a></h5>
-              <p class="card-text des">
-                <a href="">Intel 14th Gen Raptor Lake Refresh Core i9 14 ...</a>
-              </p>
-              <p class="card-text price pb-3">Tk 69,500</p>
+              <p class="card-text price pb-2">Tk 69,500</p>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card h-100">
-            <img src="../assets/images/laptop.png" class="card-img-top" alt="..." />
+            <div class="overflow-hidden">
+              <img
+                src="https://www.ryanscomputers.com/storage/products/small/hp-15s-fq3617tu-intel-cdc-n4500-156-inch-fhd-11685250268.webp"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="product-btn">
+                <a class="m-1 cart" target="_blank" href="#"
+                  ><i class="fa-solid fa-cart-arrow-down"></i
+                ></a>
+                <a class="m-1 love" target="_blank" href="#"><i class="fa-solid fa-heart"></i></a>
+                <a class="m-1 view" target="_blank" href="#"><i class="fa-solid fa-eye"></i></a>
+              </div>
+            </div>
             <div class="card-body text-center">
-              <h5 class="card-title"><a href="">Card title</a></h5>
+              <h5 class="card-title p-2"><a href="">Card title</a></h5>
               <p class="card-text des">
                 <a href="">Intel 14th Gen Raptor Lake Refresh Core i9 14 ...</a>
               </p>
-              <p class="card-text price pb-3">Tk 69,500</p>
+              <p class="card-text price pb-2">Tk 69,500</p>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card h-100">
-            <img src="../assets/images/laptop.png" class="card-img-top" alt="..." />
+            <div class="overflow-hidden">
+              <img
+                src="https://www.ryanscomputers.com/storage/products/small/hp-15s-fq3617tu-intel-cdc-n4500-156-inch-fhd-11685250268.webp"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="product-btn">
+                <a class="m-1 cart" target="_blank" href="#"
+                  ><i class="fa-solid fa-cart-arrow-down"></i
+                ></a>
+                <a class="m-1 love" target="_blank" href="#"><i class="fa-solid fa-heart"></i></a>
+                <a class="m-1 view" target="_blank" href="#"><i class="fa-solid fa-eye"></i></a>
+              </div>
+            </div>
             <div class="card-body text-center">
-              <h5 class="card-title"><a href="">Card title</a></h5>
+              <h5 class="card-title p-2"><a href="">Card title</a></h5>
               <p class="card-text des">
                 <a href="">Intel 14th Gen Raptor Lake Refresh Core i9 14 ...</a>
               </p>
-              <p class="card-text price pb-3">Tk 69,500</p>
+              <p class="card-text price pb-2">Tk 69,500</p>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card h-100">
-            <img src="../assets/images/laptop.png" class="card-img-top" alt="..." />
+            <div class="overflow-hidden">
+              <img
+                src="https://www.ryanscomputers.com/storage/products/small/hp-15s-fq3617tu-intel-cdc-n4500-156-inch-fhd-11685250268.webp"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="product-btn">
+                <a class="m-1 cart" target="_blank" href="#"
+                  ><i class="fa-solid fa-cart-arrow-down"></i
+                ></a>
+                <a class="m-1 love" target="_blank" href="#"><i class="fa-solid fa-heart"></i></a>
+                <a class="m-1 view" target="_blank" href="#"><i class="fa-solid fa-eye"></i></a>
+              </div>
+            </div>
             <div class="card-body text-center">
-              <h5 class="card-title"><a href="">Card title</a></h5>
+              <h5 class="card-title p-2"><a href="">Card title</a></h5>
               <p class="card-text des">
                 <a href="">Intel 14th Gen Raptor Lake Refresh Core i9 14 ...</a>
               </p>
-              <p class="card-text price pb-3">Tk 69,500</p>
+              <p class="card-text price pb-2">Tk 69,500</p>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card h-100">
-            <img src="../assets/images/laptop.png" class="card-img-top" alt="..." />
+            <div class="overflow-hidden">
+              <img
+                src="https://www.ryanscomputers.com/storage/products/small/hp-15s-fq3617tu-intel-cdc-n4500-156-inch-fhd-11685250268.webp"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="product-btn">
+                <a class="m-1 cart" target="_blank" href="#"
+                  ><i class="fa-solid fa-cart-arrow-down"></i
+                ></a>
+                <a class="m-1 love" target="_blank" href="#"><i class="fa-solid fa-heart"></i></a>
+                <a class="m-1 view" target="_blank" href="#"><i class="fa-solid fa-eye"></i></a>
+              </div>
+            </div>
             <div class="card-body text-center">
-              <h5 class="card-title"><a href="">Card title</a></h5>
+              <h5 class="card-title p-2"><a href="">Card title</a></h5>
               <p class="card-text des">
                 <a href="">Intel 14th Gen Raptor Lake Refresh Core i9 14 ...</a>
               </p>
-              <p class="card-text price pb-3">Tk 69,500</p>
+              <p class="card-text price pb-2">Tk 69,500</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <div class="overflow-hidden">
+              <img
+                src="https://www.ryanscomputers.com/storage/products/small/hp-15s-fq3617tu-intel-cdc-n4500-156-inch-fhd-11685250268.webp"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="product-btn">
+                <a class="m-1 cart" target="_blank" href="#"
+                  ><i class="fa-solid fa-cart-arrow-down"></i
+                ></a>
+                <a class="m-1 love" target="_blank" href="#"><i class="fa-solid fa-heart"></i></a>
+                <a class="m-1 view" target="_blank" href="#"><i class="fa-solid fa-eye"></i></a>
+              </div>
+            </div>
+            <div class="card-body text-center">
+              <h5 class="card-title p-2"><a href="">Card title</a></h5>
+              <p class="card-text des">
+                <a href="">Intel 14th Gen Raptor Lake Refresh Core i9 14 ...</a>
+              </p>
+              <p class="card-text price pb-2">Tk 69,500</p>
             </div>
           </div>
         </div>

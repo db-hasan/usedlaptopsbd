@@ -34,9 +34,9 @@ a {
     text-decoration: none !important;
 }
 
-p {
+/* p {
     margin-bottom: 0px !important;
-}
+} */
 
 .background {
     background-color: var(--background);
@@ -239,17 +239,17 @@ body {
 }
 
 .card-body .card-title {
-    font-size: 14px !important;
+    font-size: 16px !important;
     font-weight: bold;
 }
 
 .card-body .des {
-    font-size: 12px !important;
-    padding: 5px !important;
+    font-size: 14px !important;
+    padding-bottom: 5px !important;
 }
 
 .card-body .price {
-    font-size: 13px !important;
+    font-size: 14px !important;
     font-weight: bold;
 }
 
@@ -266,25 +266,54 @@ body {
     padding: 2px !important;
 }
 
-.cart {
-    color: var(--hover) !important;
+/* ---------Product button Start--------- */
+   .product-btn {
+       opacity: 0;
+       transition: opacity 0.3s ease-in-out;
+       position: absolute;
+       top: 30%;
+       left: 90%;
+       transform: translate(-50%, -50%);
+       display: flex;
+       flex-direction: column;
+   }
+
+   .product-btn a {
+       margin: 5px 0;
+   }
+
+   .card:hover .product-btn {
+       opacity: 1;
+   }
+
+
+
+.product-btn a {
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
 }
 
 .love {
     color: rgba(255, 0, 0, 0.546) !important;
 }
-
 .cart:hover {
-    color: var(--primary) !important;
-}
-
-.love:hover {
-    color: var(--primary) !important;
+    color: #fff !important;
 }
 
 .view:hover {
-    color: var(--primary) !important;
+    color: #fff !important;
 }
+.love:hover {
+    color: #fff !important;
+}
+
+.product-btn a:hover{
+    background-color: #000;
+}
+/* ---------Product button end--------- */
+
 
 .top_brand {
     border: 1px solid #e9e9e9;
@@ -406,3 +435,4 @@ body {
 .details li {
     padding: 2px 0px;
 }
+
