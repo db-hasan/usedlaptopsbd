@@ -147,12 +147,12 @@
               aria-current="true"
               aria-label="Slide 1"
             ></button>
-            <button
+            <buttonG
               type="button"
               data-bs-target="#myCarousel"
               data-bs-slide-to="1"
               aria-label="Slide 2"
-            ></button>
+            ></buttonG>
             <button
               type="button"
               data-bs-target="#myCarousel"
