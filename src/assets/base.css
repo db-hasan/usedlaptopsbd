@@ -115,6 +115,7 @@ body {
     color: var(--white) !important;
 }
 
+/*========== navbar start ============*/
 .navbar a {
     color: #000 !important;
 }
@@ -133,6 +134,12 @@ body {
     font-weight: bold;
 }
 
+.navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+    justify-content: space-around;
+}
+/*========== navbar end ============*/
 /* header end */
 
 
