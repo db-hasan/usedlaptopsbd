@@ -259,7 +259,9 @@ body {
     font-size: 14px !important;
     font-weight: bold;
 }
-
+.card a{
+    color: #000;
+}
 .card p {
     margin-top: 0;
     margin-bottom: 3px !important;

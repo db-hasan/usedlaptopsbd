@@ -35,16 +35,12 @@
               <RouterLink to="/show" type="button" class="btn view"
                 ><i class="fa-solid fa-eye"></i
               ></RouterLink>
-              <RouterLink to="/edit" type="button" class="btn edit"
+              <RouterLink :to="'/product/' + product.id + '/edit'" type="button" class="btn edit"
                 ><i class="fa-solid fa-pen"></i
               ></RouterLink>
-              <RouterLink
-                to=""
-                type="button"
-                class="btn delete"
-                onclick="return confirm('Are you sure dalete')"
-                ><i class="fa-solid fa-trash"></i>
-              </RouterLink>
+              <button to="" type="button" class="btn delete" @click="deleteProducts(product.id)">
+                <i class="fa-solid fa-trash"></i>
+              </button>
             </td>
           </tr>
         </tbody>
@@ -69,6 +65,26 @@ export default {
       axios.get('http://127.0.0.1:8000/api/product').then((res) => {
         this.products = res.data.index
       })
+    },
+
+    // delete start
+    deleteProducts(productId) {
+      console.log(productId)
+      if (confirm('Are you delete this record?')) {
+        axios
+          .delete(`http://localhost:8000/api/product/${this.productId}/delete`)
+          .then((res) => {
+            alert(res.data.message)
+            this.getproducts()
+          })
+          .catch(function (error) {
+            if (error.response) {
+              if (error.response.status == 404) {
+                alert(error.response.data.message)
+              }
+            }
+          })
+      }
     }
   }
 }

@@ -101,7 +101,47 @@
         </div>
       </div>
       <div class="row g-2 pt-3">
-        <div class="col">
+        <div class="col" v-for="(product, index) in this.products" :key="index">
+          <div class="card h-100">
+            <div class="overflow-hidden">
+              <img
+                src="https://www.ryanscomputers.com/storage/products/small/hp-15s-fq3617tu-intel-cdc-n4500-156-inch-fhd-11685250268.webp"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="product-btn">
+                <RouterLink
+                  class="m-1 cart"
+                  target="_blank"
+                  :to="'/product/' + product.id + '/cart'"
+                  ><i class="fa-solid fa-cart-arrow-down"></i
+                ></RouterLink>
+                <RouterLink
+                  class="m-1 love"
+                  target="_blank"
+                  :to="'/product/' + product.id + '/edit'"
+                  ><i class="fa-solid fa-heart"></i
+                ></RouterLink>
+                <RouterLink
+                  class="m-1 view"
+                  target="_blank"
+                  :to="'/product/' + product.id + '/show'"
+                  ><i class="fa-solid fa-eye"></i
+                ></RouterLink>
+              </div>
+            </div>
+            <div class="card-body text-center">
+              <h5 class="card-title p-2">
+                <a href="">{{ product.product_name }}</a>
+              </h5>
+              <p class="card-text des ps-1">
+                <a href="">{{ product.product_des }}..</a>
+              </p>
+              <p class="card-text price pb-2">{{ product.sales_price }}</p>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col">
           <div class="card h-100">
             <div class="overflow-hidden">
               <img
@@ -125,132 +165,7 @@
               <p class="card-text price pb-2">Tk 69,500</p>
             </div>
           </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <div class="overflow-hidden">
-              <img
-                src="https://www.ryanscomputers.com/storage/products/small/hp-15s-fq3617tu-intel-cdc-n4500-156-inch-fhd-11685250268.webp"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="product-btn">
-                <a class="m-1 cart" target="_blank" href="#"
-                  ><i class="fa-solid fa-cart-arrow-down"></i
-                ></a>
-                <a class="m-1 love" target="_blank" href="#"><i class="fa-solid fa-heart"></i></a>
-                <a class="m-1 view" target="_blank" href="#"><i class="fa-solid fa-eye"></i></a>
-              </div>
-            </div>
-            <div class="card-body text-center">
-              <h5 class="card-title p-2"><a href="">Card title</a></h5>
-              <p class="card-text des">
-                <a href="">Intel 14th Gen Raptor Lake Refresh Core i9 14 ...</a>
-              </p>
-              <p class="card-text price pb-2">Tk 69,500</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <div class="overflow-hidden">
-              <img
-                src="https://www.ryanscomputers.com/storage/products/small/hp-15s-fq3617tu-intel-cdc-n4500-156-inch-fhd-11685250268.webp"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="product-btn">
-                <a class="m-1 cart" target="_blank" href="#"
-                  ><i class="fa-solid fa-cart-arrow-down"></i
-                ></a>
-                <a class="m-1 love" target="_blank" href="#"><i class="fa-solid fa-heart"></i></a>
-                <a class="m-1 view" target="_blank" href="#"><i class="fa-solid fa-eye"></i></a>
-              </div>
-            </div>
-            <div class="card-body text-center">
-              <h5 class="card-title p-2"><a href="">Card title</a></h5>
-              <p class="card-text des">
-                <a href="">Intel 14th Gen Raptor Lake Refresh Core i9 14 ...</a>
-              </p>
-              <p class="card-text price pb-2">Tk 69,500</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <div class="overflow-hidden">
-              <img
-                src="https://www.ryanscomputers.com/storage/products/small/hp-15s-fq3617tu-intel-cdc-n4500-156-inch-fhd-11685250268.webp"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="product-btn">
-                <a class="m-1 cart" target="_blank" href="#"
-                  ><i class="fa-solid fa-cart-arrow-down"></i
-                ></a>
-                <a class="m-1 love" target="_blank" href="#"><i class="fa-solid fa-heart"></i></a>
-                <a class="m-1 view" target="_blank" href="#"><i class="fa-solid fa-eye"></i></a>
-              </div>
-            </div>
-            <div class="card-body text-center">
-              <h5 class="card-title p-2"><a href="">Card title</a></h5>
-              <p class="card-text des">
-                <a href="">Intel 14th Gen Raptor Lake Refresh Core i9 14 ...</a>
-              </p>
-              <p class="card-text price pb-2">Tk 69,500</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <div class="overflow-hidden">
-              <img
-                src="https://www.ryanscomputers.com/storage/products/small/hp-15s-fq3617tu-intel-cdc-n4500-156-inch-fhd-11685250268.webp"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="product-btn">
-                <a class="m-1 cart" target="_blank" href="#"
-                  ><i class="fa-solid fa-cart-arrow-down"></i
-                ></a>
-                <a class="m-1 love" target="_blank" href="#"><i class="fa-solid fa-heart"></i></a>
-                <a class="m-1 view" target="_blank" href="#"><i class="fa-solid fa-eye"></i></a>
-              </div>
-            </div>
-            <div class="card-body text-center">
-              <h5 class="card-title p-2"><a href="">Card title</a></h5>
-              <p class="card-text des">
-                <a href="">Intel 14th Gen Raptor Lake Refresh Core i9 14 ...</a>
-              </p>
-              <p class="card-text price pb-2">Tk 69,500</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <div class="overflow-hidden">
-              <img
-                src="https://www.ryanscomputers.com/storage/products/small/hp-15s-fq3617tu-intel-cdc-n4500-156-inch-fhd-11685250268.webp"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="product-btn">
-                <a class="m-1 cart" target="_blank" href="#"
-                  ><i class="fa-solid fa-cart-arrow-down"></i
-                ></a>
-                <a class="m-1 love" target="_blank" href="#"><i class="fa-solid fa-heart"></i></a>
-                <a class="m-1 view" target="_blank" href="#"><i class="fa-solid fa-eye"></i></a>
-              </div>
-            </div>
-            <div class="card-body text-center">
-              <h5 class="card-title p-2"><a href="">Card title</a></h5>
-              <p class="card-text des">
-                <a href="">Intel 14th Gen Raptor Lake Refresh Core i9 14 ...</a>
-              </p>
-              <p class="card-text price pb-2">Tk 69,500</p>
-            </div>
-          </div>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -363,3 +278,24 @@
     </div>
   </main>
 </template>
+
+<script>
+import axios from 'axios'
+export default {
+  data() {
+    return {
+      products: []
+    }
+  },
+  mounted() {
+    this.getproducts()
+  },
+  methods: {
+    getproducts() {
+      axios.get('http://127.0.0.1:8000/api/product').then((res) => {
+        this.products = res.data.index
+      })
+    }
+  }
+}
+</script>

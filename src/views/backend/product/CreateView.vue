@@ -121,6 +121,7 @@ export default {
             product_des: '',
             product_img: ''
           }
+          this.errorList = ''
         })
         .catch(function (error) {
           if (error.response) {
