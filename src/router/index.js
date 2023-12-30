@@ -7,6 +7,9 @@ import HomeView from '../views/HomeView.vue'
 import BacklayoutsViewVue from '@/views/backend/layouts/LayoutsView.vue'
 import DashboardView from '../views/DashboardView.vue'
 import IndexViewVue from '@/views/backend/product/IndexView.vue'
+import CreateViewVue from '@/views/backend/product/CreateView.vue'
+import EditViewVue from '@/views/backend/product/EditView.vue'
+import ShowViewVue from '@/views/backend/product/ShowView.vue'
 
 
 const router = createRouter({
@@ -47,6 +50,21 @@ const router = createRouter({
           path: '/index',
           name: 'index',
           component: IndexViewVue,
+        },
+        {
+          path: '/create',
+          name: 'create',
+          component: CreateViewVue,
+        },
+        {
+          path: '/edit',
+          name: 'edit',
+          component: EditViewVue,
+        },
+        {
+          path: '/show',
+          name: 'show',
+          component: ShowViewVue,
         },
       ],
     },

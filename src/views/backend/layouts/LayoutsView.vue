@@ -12,7 +12,7 @@
             </RouterLink>
           </li>
           <li class="">
-            <RouterLink to="">
+            <RouterLink to="/index">
               <span class="icon">
                 <i class="fa-regular fa-folder-open fa-lg"></i>
               </span>
