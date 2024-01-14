@@ -163,22 +163,17 @@
           <span class="">Laptops</span>
         </div>
       </div>
-
-      <!-- <div>
-                <img
-                  v-bind:src="'http://127.0.0.1:8000/images/1705211923_1671027006.png'"
-                  alt="product name"
-                />
-              </div> -->
-
       <div class="row g-2 pt-3">
         <div class="col-sm-2" v-for="(product, index) in this.products" :key="index">
           <div class="card h-100">
             <div class="overflow-hidden">
-              <div>
-                <img v-bind:src="product.product_img" alt="Img not Found" />
+              <div class="">
+                <img
+                  src="https://www.ryanscomputers.com/storage/products/main/microsoft-surface-laptop-4-intel-core-i5-1135g7-11683951977.webp"
+                  class="card-img-top"
+                  alt="..."
+                />
               </div>
-              <p class="card-text price pb-2">{{ product.product_img }}</p>
               <div class="product-btn">
                 <RouterLink class="m-1 cart" :to="'/product/' + product.id + '/cart'"
                   ><i class="fa-solid fa-cart-arrow-down"></i
