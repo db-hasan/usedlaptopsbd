@@ -112,7 +112,7 @@ export default {
   methods: {
     getProductData(productId) {
       axios
-        .get(`http://localhost:8000/api/product/${productId}/edit`)
+        .get(`http://192.168.80.124/api/product/${productId}/edit`)
         .then((res) => {
           console.log(res.data.index)
           this.model.products = res.data.index
@@ -128,7 +128,7 @@ export default {
     updateProducts() {
       var mythis = this
       axios
-        .put(`http://localhost:8000/api/product/${this.productId}/edit`, this.model.products)
+        .put(`http://192.168.80.124/api/product/${this.productId}/edit`, this.model.products)
         .then((res) => {
           console.log(res.data)
           alert(res.data.message)
@@ -142,10 +142,6 @@ export default {
             if (error.response.status == 404) {
               alert(error.response.data.message)
             }
-            // } else if (error.request) {
-            //   console.log(error.request)
-            // } else {
-            //   console.log('Error', error.message)
           }
         })
     }

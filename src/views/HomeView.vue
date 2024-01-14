@@ -2,6 +2,69 @@
 // import TableView from '../components/TableView.vue'
 </script>
 <template>
+  <div class="home">
+    <div class="banner">
+      <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#myCarousel"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <buttonG
+            type="button"
+            data-bs-target="#myCarousel"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></buttonG>
+          <button
+            type="button"
+            data-bs-target="#myCarousel"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="../assets/images/banner.webp" class="d-block w-100" alt="Image 1" />
+
+            <div class="carousel-caption d-none d-md-block">
+              <h5>First slide label</h5>
+              <p>Some representative placeholder content for the first slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="../assets/images/banner1.webp" class="d-block w-100" alt="Image 2" />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>First slide label</h5>
+              <p>Some representative placeholder content for the first slide.</p>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
   <main>
     <!-- Top Brands start -->
     <div class="content py-2">
@@ -100,39 +163,39 @@
           <span class="">Laptops</span>
         </div>
       </div>
+
+      <!-- <div>
+                <img
+                  v-bind:src="'http://127.0.0.1:8000/images/1705211923_1671027006.png'"
+                  alt="product name"
+                />
+              </div> -->
+
       <div class="row g-2 pt-3">
-        <div class="col" v-for="(product, index) in this.products" :key="index">
+        <div class="col-sm-2" v-for="(product, index) in this.products" :key="index">
           <div class="card h-100">
             <div class="overflow-hidden">
-              <img
-                src="https://www.ryanscomputers.com/storage/products/small/hp-15s-fq3617tu-intel-cdc-n4500-156-inch-fhd-11685250268.webp"
-                class="card-img-top"
-                alt="..."
-              />
+              <div>
+                <img v-bind:src="product.product_img" alt="Img not Found" />
+              </div>
+              <p class="card-text price pb-2">{{ product.product_img }}</p>
               <div class="product-btn">
-                <RouterLink
-                  class="m-1 cart"
-                  target="_blank"
-                  :to="'/product/' + product.id + '/cart'"
+                <RouterLink class="m-1 cart" :to="'/product/' + product.id + '/cart'"
                   ><i class="fa-solid fa-cart-arrow-down"></i
                 ></RouterLink>
-                <RouterLink
-                  class="m-1 love"
-                  target="_blank"
-                  :to="'/product/' + product.id + '/edit'"
+                <RouterLink class="m-1 love" :to="'/product/' + product.id + '/save'"
                   ><i class="fa-solid fa-heart"></i
                 ></RouterLink>
-                <RouterLink
-                  class="m-1 view"
-                  target="_blank"
-                  :to="'/product/' + product.id + '/show'"
+                <RouterLink class="m-1 view" :to="'/product/' + product.id + '/view'"
                   ><i class="fa-solid fa-eye"></i
                 ></RouterLink>
               </div>
             </div>
             <div class="card-body text-center">
               <h5 class="card-title p-2">
-                <a href="">{{ product.product_name }}</a>
+                <RouterLink :to="'/product/' + product.id + '/view'">{{
+                  product.product_name
+                }}</RouterLink>
               </h5>
               <p class="card-text des ps-1">
                 <a href="">{{ product.product_des }}..</a>
@@ -141,31 +204,6 @@
             </div>
           </div>
         </div>
-        <!-- <div class="col">
-          <div class="card h-100">
-            <div class="overflow-hidden">
-              <img
-                src="https://www.ryanscomputers.com/storage/products/small/hp-15s-fq3617tu-intel-cdc-n4500-156-inch-fhd-11685250268.webp"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="product-btn">
-                <a class="m-1 cart" target="_blank" href="#"
-                  ><i class="fa-solid fa-cart-arrow-down"></i
-                ></a>
-                <a class="m-1 love" target="_blank" href="#"><i class="fa-solid fa-heart"></i></a>
-                <a class="m-1 view" target="_blank" href="#"><i class="fa-solid fa-eye"></i></a>
-              </div>
-            </div>
-            <div class="card-body text-center">
-              <h5 class="card-title p-2"><a href="">Card title</a></h5>
-              <p class="card-text des">
-                <a href="">Intel 14th Gen Raptor Lake Refresh Core i9 14 ...</a>
-              </p>
-              <p class="card-text price pb-2">Tk 69,500</p>
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
 
@@ -293,6 +331,8 @@ export default {
   methods: {
     getproducts() {
       axios.get('http://127.0.0.1:8000/api/product').then((res) => {
+        // axios.get('http://192.168.80.124/api/product').then((res) => {
+        console.log(res.data.index)
         this.products = res.data.index
       })
     }

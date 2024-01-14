@@ -13,51 +13,58 @@
               </div>
             </div>
           </div>
+
+          <div>
+            <div>
+              <h1></h1>
+            </div>
+          </div>
+
           <div class="card-body px-2">
             <div class="row">
               <div class="col-md-6 g-4">
                 <label>ID:</label>
-                <div>0172554</div>
+                <div>{{ product ? product.id : 'Loading...' }}</div>
               </div>
               <div class="col-md-4 g-4">
                 <label>SKU:</label>
-                <div>QDF34WQS</div>
+                <div>{{ product ? product.product_sku : 'Loading...' }}</div>
               </div>
             </div>
             <hr />
             <div class="row">
               <div class="col-md-12">
                 <label>Name:</label>
-                <div>Hp Laptpos</div>
+                <div>{{ product ? product.product_name : 'Loading...' }}</div>
               </div>
             </div>
             <hr />
             <div class="row">
               <div class="col-md-4">
                 <label>Cost:</label>
-                <div>50000</div>
+                <div>{{ product ? product.mfg_cost : 'Loading...' }}</div>
               </div>
               <div class="col-md-4">
                 <label>Price:</label>
-                <div>70000</div>
+                <div>{{ product ? product.sales_price : 'Loading...' }}</div>
               </div>
               <div class="col-md-4">
                 <label>Quantity:</label>
-                <div>10</div>
+                <div>{{ product ? product.product_qty : 'Loading...' }}</div>
               </div>
             </div>
             <hr />
             <div class="row">
               <div class="col-md-12">
                 <label>Description:</label>
-                <div>Acer Aspire i3 8Gen</div>
+                <div>{{ product ? product.product_des : 'Loading...' }}</div>
               </div>
             </div>
             <hr />
             <div class="row">
               <div class="col-md-12 d-flex">
                 <div class="pe-5">
-                  <h6>Image.png</h6>
+                  <h6></h6>
                 </div>
                 <div class="ps-2">
                   <img
@@ -81,3 +88,35 @@
     </div>
   </div>
 </template>
+
+<script>
+import axios from 'axios'
+
+export default {
+  data() {
+    return {
+      product: null,
+      productId: ''
+    }
+  },
+  mounted() {
+    this.productId = this.$route.params.id
+    this.getProductData()
+  },
+
+  methods: {
+    getProductData() {
+      axios
+        // .get(`http://127.0.0.1:8000/api/product/${this.productId}/show`)
+        .get(`http://192.168.80.124/api/product/${this.productId}/show`)
+        .then((res) => {
+          console.log(res.data.index)
+          this.product = res.data.index
+        })
+        .catch((error) => {
+          console.error('Error fetching product data:', error)
+        })
+    }
+  }
+}
+</script>

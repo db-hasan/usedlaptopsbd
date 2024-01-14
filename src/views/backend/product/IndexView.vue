@@ -32,7 +32,7 @@
             <td>{{ product.product_des }}</td>
             <td>{{ product.product_img }}</td>
             <td class="icons">
-              <RouterLink to="/show" type="button" class="btn view"
+              <RouterLink :to="'/product/' + product.id + '/show'" type="button" class="btn view"
                 ><i class="fa-solid fa-eye"></i
               ></RouterLink>
               <RouterLink :to="'/product/' + product.id + '/edit'" type="button" class="btn edit"
@@ -62,7 +62,8 @@ export default {
   },
   methods: {
     getproducts() {
-      axios.get('http://127.0.0.1:8000/api/product').then((res) => {
+      // axios.get('http://127.0.0.1:8000/api/product').then((res) => {
+      axios.get('http://192.168.80.124/api/product').then((res) => {
         this.products = res.data.index
       })
     },

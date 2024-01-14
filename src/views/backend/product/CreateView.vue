@@ -108,7 +108,8 @@ export default {
     saveProducts() {
       var mythis = this
       axios
-        .post('http://127.0.0.1:8000/api/product', this.model.products)
+        // .post('http://127.0.0.1:8000/api/product', this.model.products)
+        .post('http://192.168.80.124/api/product', this.model.products)
         .then((res) => {
           console.log(res)
           alert(res.data.message)
