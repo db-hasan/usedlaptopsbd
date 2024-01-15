@@ -167,13 +167,23 @@
         <div class="col-sm-2" v-for="(product, index) in this.products" :key="index">
           <div class="card h-100">
             <div class="overflow-hidden">
-              <div class="">
+              <!-- Add a v-for loop for multiple images -->
+              <div v-for="(image, imageIndex) in JSON.parse(product.product_img)" :key="imageIndex">
                 <img
-                  src="https://www.ryanscomputers.com/storage/products/main/microsoft-surface-laptop-4-intel-core-i5-1135g7-11683951977.webp"
+                  :src="'http://127.0.0.1:8000/images/' + image"
+                  class="card-img-top"
+                  alt="Image Not Found"
+                />
+              </div>
+
+              <!-- single image print -->
+              <!-- <div class="">
+                <img
+                  :src="'http://127.0.0.1:8000/images/' + product.product_img"
                   class="card-img-top"
                   alt="..."
                 />
-              </div>
+              </div> -->
               <div class="product-btn">
                 <RouterLink class="m-1 cart" :to="'/product/' + product.id + '/cart'"
                   ><i class="fa-solid fa-cart-arrow-down"></i
@@ -317,7 +327,8 @@ import axios from 'axios'
 export default {
   data() {
     return {
-      products: []
+      products: [],
+      images: []
     }
   },
   mounted() {
