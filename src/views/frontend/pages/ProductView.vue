@@ -13,7 +13,7 @@
                   :key="imageIndex"
                 >
                   <img
-                    :src="'http://127.0.0.1:8000/images/' + image"
+                    :src="'http://192.168.80.124/images/' + image"
                     class="card-img-top"
                     alt="Not Found"
                   />
@@ -21,23 +21,31 @@
               </div>
               <div v-else>Loading...</div>
             </div>
-            <div class="col-10 pt-4">
-              <div class="text-center">
-                <img
-                  src="https://www.ryanscomputers.com/storage/products/small/asus-vp247hae-236-inch-fhd-hdmi-vga-eye-care-11663820310.webp"
-                  class="img-fluid"
-                  alt="Not found"
-                />
-              </div>
-              <!-- <div class="pb-2">
+
+            <!-- <div class="col-10">
+              <div class="d-flex align-items-center">
                 <img
                   :src="
-                    'http://127.0.0.1:8000/images/' + (product ? product.product_img : 'Loading...')
+                    'http://192.168.80.124/images/' +
+                    (product ? product.thumbnail_img : 'Loading...')
                   "
                   class="card-img-top"
                   alt="..."
                 />
-              </div> -->
+              </div>
+            </div> -->
+
+            <div class="col-10">
+              <div class="pb-2" v-if="product && product.product_img">
+                <img
+                  v-if="JSON.parse(product.product_img).length > 0"
+                  :src="'http://192.168.80.124/images/' + JSON.parse(product.product_img)[0]"
+                  class="card-img-top"
+                  alt="Not Found"
+                />
+                <div v-else>No images found</div>
+              </div>
+              <div v-else>Loading...</div>
             </div>
           </div>
         </div>
@@ -99,8 +107,8 @@ export default {
   methods: {
     getProductData() {
       axios
-        .get(`http://127.0.0.1:8000/api/product/${this.productId}/show`)
-        // .get(`http://192.168.80.124/api/product/${this.productId}/show`)
+        // .get(`http://127.0.0.1:8000/api/product/${this.productId}/show`)
+        .get(`http://192.168.80.124/api/product/${this.productId}/show`)
         .then((res) => {
           console.log(res.data.index)
           this.product = res.data.index

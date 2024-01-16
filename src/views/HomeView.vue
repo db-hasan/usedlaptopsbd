@@ -167,23 +167,25 @@
         <div class="col-sm-2" v-for="(product, index) in this.products" :key="index">
           <div class="card h-100">
             <div class="overflow-hidden">
-              <!-- Add a v-for loop for multiple images -->
-              <div v-for="(image, imageIndex) in JSON.parse(product.product_img)" :key="imageIndex">
-                <img
-                  :src="'http://127.0.0.1:8000/images/' + image"
-                  class="card-img-top"
-                  alt="Image Not Found"
-                />
-              </div>
-
-              <!-- single image print -->
               <!-- <div class="">
                 <img
-                  :src="'http://127.0.0.1:8000/images/' + product.product_img"
+                  :src="'http://127.0.0.1:8000/images/' + product.thumbnail_img"
                   class="card-img-top"
                   alt="..."
                 />
               </div> -->
+
+              <div class="pb-2" v-if="product && product.product_img">
+                <img
+                  v-if="JSON.parse(product.product_img).length > 0"
+                  :src="'http://127.0.0.1:8000/images/' + JSON.parse(product.product_img)[0]"
+                  class="card-img-top"
+                  alt="Not Found"
+                />
+                <div v-else>No images found</div>
+              </div>
+              <div v-else>Loading...</div>
+
               <div class="product-btn">
                 <RouterLink class="m-1 cart" :to="'/product/' + product.id + '/cart'"
                   ><i class="fa-solid fa-cart-arrow-down"></i
@@ -337,7 +339,6 @@ export default {
   methods: {
     getproducts() {
       axios.get('http://127.0.0.1:8000/api/product').then((res) => {
-        // axios.get('http://192.168.80.124/api/product').then((res) => {
         console.log(res.data.index)
         this.products = res.data.index
       })
