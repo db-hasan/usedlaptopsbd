@@ -3,36 +3,12 @@
 <template>
   <div class="content py-3 background">
     <div class="row">
-      <div class="col-4">
+      <div class="col-6">
         <div class="vcolor px-3">
-          <div class="col-12">
-            <div class="border" v-if="product && product.product_img">
-              <img
-                v-if="JSON.parse(product.product_img).length > 0"
-                :src="'http://192.168.80.124/images/' + JSON.parse(product.product_img)[0]"
-                class="card-img-top"
-                alt="Not Found"
-              />
-              <div v-else>No images found</div>
-            </div>
-            <div v-else>Loading...</div>
-          </div>
-          <!-- <div class="col-12">
-            <div class="">
-              <img
-                :src="
-                  'http://192.168.80.124/images/' + (product ? product.thumbnail_img : 'Loading...')
-                "
-                class="card-img-top"
-                alt="..."
-              />
-            </div>
-          </div> -->
           <div class="row">
-            <div class="col-12">
-              <div class="pb-2 d-flex" v-if="product && product.product_img">
+            <div class="col-2">
+              <div class="pb-2" v-if="product && product.product_img">
                 <div
-                  class="border"
                   v-for="(image, imageIndex) in JSON.parse(product.product_img)"
                   :key="imageIndex"
                 >
@@ -45,10 +21,36 @@
               </div>
               <div v-else>Loading...</div>
             </div>
+
+            <!-- <div class="col-10">
+              <div class="d-flex align-items-center">
+                <img
+                  :src="
+                    'http://192.168.80.124/images/' +
+                    (product ? product.thumbnail_img : 'Loading...')
+                  "
+                  class="card-img-top"
+                  alt="..."
+                />
+              </div>
+            </div> -->
+
+            <div class="col-10">
+              <div class="pb-2" v-if="product && product.product_img">
+                <img
+                  v-if="JSON.parse(product.product_img).length > 0"
+                  :src="'http://192.168.80.124/images/' + JSON.parse(product.product_img)[0]"
+                  class="card-img-top"
+                  alt="Not Found"
+                />
+                <div v-else>No images found</div>
+              </div>
+              <div v-else>Loading...</div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-8 vcolor">
+      <div class="col-6 vcolor">
         <div class="py-3">
           <p>
             {{ product ? product.product_name : 'Loading...' }}.{{
