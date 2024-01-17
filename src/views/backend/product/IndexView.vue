@@ -17,7 +17,7 @@
             <th><span class="">Price </span></th>
             <th><span class="">Quantity </span></th>
             <th><span class="">Description </span></th>
-            <!-- <th><span class="">Thumbnail </span></th> -->
+            <th><span class="">Thumbnail </span></th>
             <th class="ps-5">Action</th>
           </tr>
         </thead>
@@ -30,7 +30,18 @@
             <td>{{ product.sales_price }}</td>
             <td>{{ product.product_qty }}</td>
             <td>{{ product.product_des }}</td>
-            <!-- <td>{{ product.product_img }}</td> -->
+            <td>
+              <div class="pb-2" v-if="product && product.product_img">
+                <img
+                  v-if="JSON.parse(product.product_img).length > 0"
+                  :src="'http://192.168.80.124/images/' + JSON.parse(product.product_img)[0]"
+                  class="card-img-top w-25"
+                  alt="Not Found"
+                />
+                <div v-else>No images found</div>
+              </div>
+              <div v-else>Loading...</div>
+            </td>
             <td class="icons">
               <RouterLink :to="'/product/' + product.id + '/show'" type="button" class="btn view"
                 ><i class="fa-solid fa-eye"></i

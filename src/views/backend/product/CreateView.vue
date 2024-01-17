@@ -20,7 +20,6 @@
           class="form-control"
           id="product_name"
           v-model="model.products.product_name"
-          value=""
         />
       </div>
       <div class="col-md-6 pb-3">
@@ -140,6 +139,7 @@ export default {
       formData.append('sales_price', this.model.products.sales_price)
       formData.append('product_qty', this.model.products.product_qty)
       formData.append('product_des', this.model.products.product_des)
+
       // formData.append('thumbnail_img', this.model.products.thumbnail_img) // Corrected the name
       // formData.append('product_img', this.model.products.product_img) // Corrected the name
 

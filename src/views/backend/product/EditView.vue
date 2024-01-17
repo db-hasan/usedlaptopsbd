@@ -20,7 +20,6 @@
           class="form-control"
           id="product_name"
           v-model="model.products.product_name"
-          value=""
         />
       </div>
       <div class="col-md-6 pb-3">
@@ -67,14 +66,37 @@
           v-model="model.products.product_des"
         />
       </div>
-      <div class="col-md-6 pb-3">
-        <label for="product_img" class="form-label">Images<span class="text-danger">*</span></label>
+      <div class="col-12 pb-3">
+        <div class="pb-2 w-25" v-if="product && product.product_img">
+          <div v-for="(image, imageIndex) in JSON.parse(product.product_img)" :key="imageIndex">
+            <div class="">
+              <input
+                type="file"
+                class="form-control w-100"
+                id="product_img"
+                ref="productFile"
+                multiple
+                @change="handleFileObject()"
+              />
+              <img
+                :src="'http://192.168.80.124/images/' + image"
+                class="card-img-top w-25"
+                alt="Not Found"
+              />
+            </div>
+          </div>
+        </div>
+        <div v-else>Loading...</div>
+
+        <!-- <label for="product_img" class="form-label">Images<span class="text-danger">*</span></label>
         <input
-          type="text"
+          type="file"
           class="form-control"
           id="product_img"
-          v-model="model.products.product_img"
-        />
+          ref="productFile"
+          multiple
+          @change="handleFileObject()"
+        /> -->
       </div>
 
       <div class="col-12">
@@ -90,6 +112,7 @@ import axios from 'axios'
 export default {
   data() {
     return {
+      products: null,
       productId: '',
       errorList: '',
       model: {
@@ -100,7 +123,7 @@ export default {
           sales_price: '',
           product_qty: '',
           product_des: '',
-          product_img: ''
+          product_img: []
         }
       }
     }
@@ -123,6 +146,15 @@ export default {
               alert(error.response.data.message)
             }
           }
+        })
+      axios
+        .get(`http://192.168.80.124/api/product/${this.productId}/show`)
+        .then((res) => {
+          console.log(res.data.index)
+          this.product = res.data.index
+        })
+        .catch((error) => {
+          console.error('Error fetching product data:', error)
         })
     },
     updateProducts() {

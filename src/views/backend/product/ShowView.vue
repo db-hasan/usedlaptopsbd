@@ -62,21 +62,22 @@
             </div>
             <hr />
             <div class="row">
-              <div class="col-md-12 d-flex">
-                <div class="pe-5">
-                  <h6></h6>
+              <div class="col-12">
+                <div class="pb-2 d-flex w-50" v-if="product && product.product_img">
+                  <div
+                    v-for="(image, imageIndex) in JSON.parse(product.product_img)"
+                    :key="imageIndex"
+                  >
+                    <img
+                      :src="'http://192.168.80.124/images/' + image"
+                      class="card-img-top"
+                      alt="Not Found"
+                    />
+                  </div>
                 </div>
-                <div class="ps-2">
-                  <img
-                    src=""
-                    alt="Image not found"
-                    style="height: 100px; width: 100px"
-                    class="rounded"
-                  />
-                </div>
+                <div v-else>Loading...</div>
               </div>
             </div>
-            <hr />
           </div>
           <div class="card-footer">
             <div class="text-end">

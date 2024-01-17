@@ -5,8 +5,47 @@
     <div class="row">
       <div class="col-4">
         <div class="vcolor px-3">
+          <!-- Main Image Click Show -->
           <div class="col-12">
-            <div class="border" v-if="product && product.product_img">
+            <div
+              class="border xzoom-thumbs"
+              v-if="product && product.product_img"
+              ref="xzoomThumbs"
+            >
+              <img
+                v-if="JSON.parse(product.product_img).length > 0"
+                :src="'http://192.168.80.124/images/' + selectedImage"
+                class="card-img-top"
+                alt="Not Found"
+              />
+              <div v-else>No images found</div>
+            </div>
+            <div v-else>Loading...</div>
+          </div>
+          <!-- Gallery Image Click able -->
+          <div class="row">
+            <div class="">
+              <div class="pb-2 d-flex" v-if="product && product.product_img">
+                <div
+                  class="border xzoom-gallery"
+                  v-for="(image, imageIndex) in JSON.parse(product.product_img)"
+                  :key="imageIndex"
+                  @click="selectImage(image)"
+                >
+                  <img
+                    :src="'http://192.168.80.124/images/' + image"
+                    class="card-img-top"
+                    alt="Not Found"
+                  />
+                </div>
+              </div>
+              <div v-else>Loading...</div>
+            </div>
+          </div>
+
+          <!-- Main Image -->
+          <!-- <div class="col-12">
+            <div class="pb-2" v-if="product && product.product_img">
               <img
                 v-if="JSON.parse(product.product_img).length > 0"
                 :src="'http://192.168.80.124/images/' + JSON.parse(product.product_img)[0]"
@@ -16,9 +55,11 @@
               <div v-else>No images found</div>
             </div>
             <div v-else>Loading...</div>
-          </div>
-          <!-- <div class="col-12">
-            <div class="">
+          </div> -->
+
+          <!-- Thumbnail Image -->
+          <!-- <div class="col-10">
+            <div class="d-flex align-items-center">
               <img
                 :src="
                   'http://192.168.80.124/images/' + (product ? product.thumbnail_img : 'Loading...')
@@ -28,11 +69,12 @@
               />
             </div>
           </div> -->
-          <div class="row">
+
+          <!-- Gallery Image -->
+          <!-- <div class="row">
             <div class="col-12">
               <div class="pb-2 d-flex" v-if="product && product.product_img">
                 <div
-                  class="border"
                   v-for="(image, imageIndex) in JSON.parse(product.product_img)"
                   :key="imageIndex"
                 >
@@ -45,10 +87,10 @@
               </div>
               <div v-else>Loading...</div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
-      <div class="col-8 vcolor">
+      <div class="col-6 vcolor">
         <div class="py-3">
           <p>
             {{ product ? product.product_name : 'Loading...' }}.{{
@@ -94,6 +136,48 @@ export default {
   data() {
     return {
       product: null,
+      productId: '',
+      selectedImage: '' // Add a data property to store the selected image
+    }
+  },
+  mounted() {
+    this.productId = this.$route.params.id
+    this.getProductData()
+  },
+
+  methods: {
+    getProductData() {
+      axios
+        .get(`http://192.168.80.124/api/product/${this.productId}/show`)
+        .then((res) => {
+          console.log(res.data.index)
+          this.product = res.data.index
+          if (
+            this.product &&
+            this.product.product_img &&
+            JSON.parse(this.product.product_img).length > 0
+          ) {
+            this.selectedImage = JSON.parse(this.product.product_img)[0] // Set the initial selected image
+          }
+        })
+        .catch((error) => {
+          console.error('Error fetching product data:', error)
+        })
+    },
+    selectImage(image) {
+      this.selectedImage = image // Set the selected image when an xzoom-gallery image is clicked
+    }
+  }
+}
+</script>
+
+<!-- <script>
+import axios from 'axios'
+
+export default {
+  data() {
+    return {
+      product: null,
       productId: ''
     }
   },
@@ -117,4 +201,4 @@ export default {
     }
   }
 }
-</script>
+</script> -->
