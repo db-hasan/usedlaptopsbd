@@ -62,7 +62,7 @@ export default {
   },
   methods: {
     getproducts() {
-      axios.get('http://127.0.0.1:8000/api/product').then((res) => {
+      axios.get('http://192.168.80.124/api/product').then((res) => {
         this.products = res.data.index
       })
     },
@@ -72,7 +72,7 @@ export default {
       console.log(productId)
       if (confirm('Are you delete this record?')) {
         axios
-          .delete(`http://localhost:8000/api/product/${this.productId}/delete`)
+          .delete(`http://192.168.80.124/api/product/${this.productId}/delete`)
           .then((res) => {
             alert(res.data.message)
             this.getproducts()

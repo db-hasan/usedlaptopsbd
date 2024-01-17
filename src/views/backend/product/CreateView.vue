@@ -149,7 +149,7 @@ export default {
       })
 
       axios
-        .post('http://127.0.0.1:8000/api/product', formData, {
+        .post('http://192.168.80.124/api/product', formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }

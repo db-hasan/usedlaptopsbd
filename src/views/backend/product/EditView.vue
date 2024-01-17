@@ -112,7 +112,7 @@ export default {
   methods: {
     getProductData(productId) {
       axios
-        .get(`http://127.0.0.1:8000/api/product/${productId}/edit`)
+        .get(`http://192.168.80.124/api/product/${productId}/edit`)
         .then((res) => {
           console.log(res.data.index)
           this.model.products = res.data.index
@@ -128,7 +128,7 @@ export default {
     updateProducts() {
       var mythis = this
       axios
-        .put(`http://127.0.0.1:8000/api/product/${this.productId}/edit`, this.model.products)
+        .put(`http://192.168.80.124/api/product/${this.productId}/edit`, this.model.products)
         .then((res) => {
           console.log(res.data)
           alert(res.data.message)

@@ -107,7 +107,7 @@ export default {
   methods: {
     getProductData() {
       axios
-        .get(`http://127.0.0.1:8000/api/product/${this.productId}/show`)
+        .get(`http://192.168.80.124/api/product/${this.productId}/show`)
         .then((res) => {
           console.log(res.data.index)
           this.product = res.data.index
