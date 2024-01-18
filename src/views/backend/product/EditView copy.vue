@@ -81,7 +81,7 @@
             @change="handleFileObject()"
           />
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-12">
             <div
               class="pb-2 d-flex w-50"
@@ -104,7 +104,7 @@
             </div>
             <div v-else>Loading...</div>
           </div>
-        </div>
+        </div> -->
       </div>
 
       <!-- <div class="col-md-12">
@@ -147,6 +147,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import axios from 'axios'
 
@@ -189,58 +190,37 @@ export default {
           }
         })
     },
-
     handleFileObject() {
       const fileInput = this.$refs.productFile
       const files = fileInput.files
+
+      // Map the files to an array of objects with a name property
       this.model.products.product_img = Array.from(files).map((file) => ({ name: file.name, file }))
+
       console.log(this.model.products)
     },
-
     updateProducts() {
-      const formData = new FormData()
-      formData.append('product_name', this.model.products.product_name)
-      formData.append('product_sku', this.model.products.product_sku)
-      formData.append('mfg_cost', this.model.products.mfg_cost)
-      formData.append('sales_price', this.model.products.sales_price)
-      formData.append('product_qty', this.model.products.product_qty)
-      formData.append('product_des', this.model.products.product_des)
+      var mythis = this
 
-      // Append the new images
-      this.model.products.product_img.forEach((fileObj, index) => {
-        formData.append(`product_img[${index}]`, fileObj.file)
-      })
+      // this.model.products.product_img.forEach((fileObj, index) => {
+      //   this.model.products.append(`product_img[${index}]`, fileObj.file)
+      // })
 
       axios
-        .put(`http://127.0.0.1:8000/api/product/${this.productId}/edit`, formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data'
-          }
-        })
+        .put(`http://127.0.0.1:8000/api/product/${this.productId}/edit`, this.model.products)
         .then((res) => {
-          console.log(res)
+          console.log(res.data)
           alert(res.data.message)
-          // Clear the old data
-          this.model.products = {
-            product_name: '',
-            product_sku: '',
-            mfg_cost: '',
-            sales_price: '',
-            product_qty: '',
-            product_des: '',
-            product_img: []
-          }
           this.errorList = ''
         })
-        .catch((error) => {
+        .catch(function (error) {
           if (error.response) {
             if (error.response.status == 422) {
-              this.errorList = error.response.data.errors
+              mythis.errorList = error.response.data.errors
             }
-          } else if (error.request) {
-            console.log(error.request)
-          } else {
-            console.log('Error', error.message)
+            if (error.response.status == 404) {
+              alert(error.response.data.message)
+            }
           }
         })
     }
