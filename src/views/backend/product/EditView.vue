@@ -96,7 +96,6 @@
         <div v-else>Loading...</div>
       </div>
 
-
       
       <div class="col-12">
         <button type="button" class="btn btn-primary" @click="updateProducts">Update</button>
