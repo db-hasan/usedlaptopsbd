@@ -169,7 +169,7 @@
             <div class="overflow-hidden">
               <!-- <div class="">
                 <img
-                  :src="'http://192.168.80.103/images/' + product.thumbnail_img"
+                  :src="'http://127.0.0.1:8000/images/' + product.thumbnail_img"
                   class="card-img-top"
                   alt="..."
                 />
@@ -178,7 +178,7 @@
               <div class="pb-2" v-if="product && product.product_img">
                 <img
                   v-if="JSON.parse(product.product_img).length > 0"
-                  :src="'http://192.168.80.103/images/' + JSON.parse(product.product_img)[0]"
+                  :src="'http://127.0.0.1:8000/images/' + JSON.parse(product.product_img)[0]"
                   class="card-img-top"
                   alt="Not Found"
                 />
@@ -338,7 +338,7 @@ export default {
   },
   methods: {
     getproducts() {
-      axios.get('http://192.168.80.103/api/product').then((res) => {
+      axios.get('http://127.0.0.1:8000/api/product').then((res) => {
         console.log(res.data.index)
         this.products = res.data.index
       })

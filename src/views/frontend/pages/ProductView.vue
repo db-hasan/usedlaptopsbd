@@ -14,7 +14,7 @@
             >
               <img
                 v-if="JSON.parse(product.product_img).length > 0"
-                :src="'http://192.168.80.103/images/' + selectedImage"
+                :src="'http://127.0.0.1:8000/images/' + selectedImage"
                 class="card-img-top"
                 alt="Not Found"
               />
@@ -33,7 +33,7 @@
                   @click="selectImage(image)"
                 >
                   <img
-                    :src="'http://192.168.80.103/images/' + image"
+                    :src="'http://127.0.0.1:8000/images/' + image"
                     class="card-img-top"
                     alt="Not Found"
                   />
@@ -48,7 +48,7 @@
             <div class="pb-2" v-if="product && product.product_img">
               <img
                 v-if="JSON.parse(product.product_img).length > 0"
-                :src="'http://192.168.80.103/images/' + JSON.parse(product.product_img)[0]"
+                :src="'http://127.0.0.1:8000/images/' + JSON.parse(product.product_img)[0]"
                 class="card-img-top"
                 alt="Not Found"
               />
@@ -62,7 +62,7 @@
             <div class="d-flex align-items-center">
               <img
                 :src="
-                  'http://192.168.80.103/images/' + (product ? product.thumbnail_img : 'Loading...')
+                  'http://127.0.0.1:8000/images/' + (product ? product.thumbnail_img : 'Loading...')
                 "
                 class="card-img-top"
                 alt="..."
@@ -79,7 +79,7 @@
                   :key="imageIndex"
                 >
                   <img
-                    :src="'http://192.168.80.103/images/' + image"
+                    :src="'http://127.0.0.1:8000/images/' + image"
                     class="card-img-top"
                     alt="Not Found"
                   />
@@ -148,7 +148,7 @@ export default {
   methods: {
     getProductData() {
       axios
-        .get(`http://192.168.80.103/api/product/${this.productId}/show`)
+        .get(`http://127.0.0.1:8000/api/product/${this.productId}/show`)
         .then((res) => {
           console.log(res.data.index)
           this.product = res.data.index
@@ -189,7 +189,7 @@ export default {
   methods: {
     getProductData() {
       axios
-        .get(`http://192.168.80.103/api/product/${this.productId}/show`)
+        .get(`http://127.0.0.1:8000/api/product/${this.productId}/show`)
         .then((res) => {
           console.log(res.data.index)
           this.product = res.data.index

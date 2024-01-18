@@ -21,40 +21,45 @@
             <th class="ps-5">Action</th>
           </tr>
         </thead>
-          <tbody>
-            <tr v-for="(product, index) in this.products" :key="index">
-              <td>{{ product.id }}</td>
-              <td>{{ product.product_name }}</td>
-              <td>{{ product.product_sku }}</td>
-              <td>{{ product.mfg_cost }}</td>
-              <td>{{ product.sales_price }}</td>
-              <td>{{ product.product_qty }}</td>
-              <td>{{ product.product_des }}</td>
-              <td>
-                <div class="pb-2" v-if="product && product.product_img">
-                  <img
-                    v-if="JSON.parse(product.product_img).length > 0"
-                    :src="'http://192.168.80.103/images/' + JSON.parse(product.product_img)[0]"
-                    class="card-img-top w-25"
-                    alt="Not Found"
-                  />
-                  <div v-else>No images found</div>
-                </div>
-                <div v-else>Loading...</div>
-              </td>
-              <td class="icons">
-                <RouterLink :to="'/product/' + product.id + '/show'" type="button" class="btn view"
-                  ><i class="fa-solid fa-eye"></i
-                ></RouterLink>
-                <RouterLink :to="'/product/' + product.id + '/edit'" type="button" class="btn edit"
-                  ><i class="fa-solid fa-pen"></i
-                ></RouterLink>
-                <button :to="'/product/' + product.id + '/delete'" type="button" class="btn delete" @click="deleteProducts(product.id)">
-                  <i class="fa-solid fa-trash"></i>
-                </button>
-              </td>
-            </tr>
-          </tbody>
+        <tbody>
+          <tr v-for="(product, index) in this.products" :key="index">
+            <td>{{ product.id }}</td>
+            <td>{{ product.product_name }}</td>
+            <td>{{ product.product_sku }}</td>
+            <td>{{ product.mfg_cost }}</td>
+            <td>{{ product.sales_price }}</td>
+            <td>{{ product.product_qty }}</td>
+            <td>{{ product.product_des }}</td>
+            <td>
+              <div class="pb-2" v-if="product && product.product_img">
+                <img
+                  v-if="JSON.parse(product.product_img).length > 0"
+                  :src="'http://127.0.0.1:8000/images/' + JSON.parse(product.product_img)[0]"
+                  class="card-img-top w-25"
+                  alt="Not Found"
+                />
+                <div v-else>No images found</div>
+              </div>
+              <div v-else>Loading...</div>
+            </td>
+            <td class="icons">
+              <RouterLink :to="'/product/' + product.id + '/show'" type="button" class="btn view"
+                ><i class="fa-solid fa-eye"></i
+              ></RouterLink>
+              <RouterLink :to="'/product/' + product.id + '/edit'" type="button" class="btn edit"
+                ><i class="fa-solid fa-pen"></i
+              ></RouterLink>
+              <button
+                :to="'/product/' + product.id + '/delete'"
+                type="button"
+                class="btn delete"
+                @click="deleteProducts(product.id)"
+              >
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>
@@ -73,7 +78,7 @@ export default {
   },
   methods: {
     getproducts() {
-      axios.get('http://192.168.80.103/api/product').then((res) => {
+      axios.get('http://127.0.0.1:8000/api/product').then((res) => {
         this.products = res.data.index
       })
     },
@@ -83,7 +88,7 @@ export default {
       console.log(productId)
       if (confirm('Are you sure you want to delete this record?')) {
         axios
-          .delete(`http://192.168.80.103/api/product/${productId}/delete`)
+          .delete(`http://127.0.0.1:8000/api/product/${productId}/delete`)
           .then((res) => {
             alert(res.data.message)
             this.getproducts()

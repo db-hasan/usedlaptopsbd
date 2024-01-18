@@ -67,12 +67,57 @@
         />
       </div>
 
-      <div class="col-md-12">
-        <div class="pb-2" v-if="model.products && model.products.product_img && model.products.product_img.length > 0">
-          <div
-              v-for="(image, imageIndex) in JSON.parse(model.products.product_img)"
-              :key="imageIndex"
+      <div class="">
+        <div class="col-md-6 pb-3">
+          <label for="product_img" class="form-label"
+            >Images<span class="text-danger">*</span></label
+          >
+          <input
+            type="file"
+            class="form-control"
+            id="product_img"
+            ref="productFile"
+            multiple
+            @change="handleFileObject()"
+          />
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div
+              class="pb-2 d-flex w-50"
+              v-if="
+                model.products &&
+                model.products.product_img &&
+                model.products.product_img.length > 0
+              "
             >
+              <div
+                v-for="(image, imageIndex) in JSON.parse(model.products.product_img)"
+                :key="imageIndex"
+              >
+                <img
+                  :src="'http://127.0.0.1:8000/images/' + image"
+                  class="card-img-top"
+                  alt="Not Found"
+                />
+              </div>
+            </div>
+            <div v-else>Loading...</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div
+          class="pb-2"
+          v-if="
+            model.products && model.products.product_img && model.products.product_img.length > 0
+          "
+        >
+          <div
+            v-for="(image, imageIndex) in JSON.parse(model.products.product_img)"
+            :key="imageIndex"
+          >
             <div class="d-flex">
               <div class="pe-2">
                 <input
@@ -81,11 +126,11 @@
                   id="product_img"
                   ref="productFile"
                   @change="handleFileObject()"
-                /> 
+                />
               </div>
               <div class="">
                 <img
-                  :src="'http://192.168.80.103/images/' + image"
+                  :src="'http://127.0.0.1:8000/images/' + image"
                   class="card-img-top w-25"
                   alt="Not Found"
                 />
@@ -96,7 +141,6 @@
         <div v-else>Loading...</div>
       </div>
 
-      
       <div class="col-12">
         <button type="button" class="btn btn-primary" @click="updateProducts">Update</button>
       </div>
@@ -136,17 +180,16 @@ export default {
     }
   },
   mounted() {
-    this.productId = this.$route.params.id;
-    this.getProductData(this.$route.params.id);
+    this.productId = this.$route.params.id
+    this.getProductData(this.$route.params.id)
   },
   methods: {
     getProductData(productId) {
       axios
-        .get(`http://192.168.80.103/api/product/${productId}/edit`)
+        .get(`http://127.0.0.1:8000/api/product/${productId}/edit`)
         .then((res) => {
           console.log(res.data.index)
           this.model.products = res.data.index
-          
         })
         .catch(function (error) {
           if (error.response) {
@@ -159,7 +202,7 @@ export default {
     updateProducts() {
       var mythis = this
       axios
-        .put(`http://192.168.80.103/api/product/${this.productId}/edit`, this.model.products)
+        .put(`http://127.0.0.1:8000/api/product/${this.productId}/edit`, this.model.products)
         .then((res) => {
           console.log(res.data)
           alert(res.data.message)
