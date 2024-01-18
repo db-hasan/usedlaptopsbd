@@ -90,7 +90,7 @@
           </div> -->
         </div>
       </div>
-      <div class="col-6 vcolor">
+      <div class="col-8 vcolor">
         <div class="py-3">
           <p>
             {{ product ? product.product_name : 'Loading...' }}.{{
