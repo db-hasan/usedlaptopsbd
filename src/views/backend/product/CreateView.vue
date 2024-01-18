@@ -149,7 +149,7 @@ export default {
       })
 
       axios
-        .post('http://192.168.80.124/api/product', formData, {
+        .post('http://192.168.80.103/api/product', formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
@@ -222,7 +222,7 @@ export default {
       formData.append('thumbnail_img', this.model.products.thumbnail_img) // Corrected the name
 
       axios
-        .post('http://127.0.0.1:8000/api/product', formData, {
+        .post('http://192.168.80.103/api/product', formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
@@ -282,7 +282,7 @@ export default {
     saveProducts() {
       var mythis = this
       axios
-        .post('http://127.0.0.1:8000/api/product', this.model.products)
+        .post('http://192.168.80.103/api/product', this.model.products)
         .then((res) => {
           console.log(res)
           alert(res.data.message)

@@ -69,7 +69,7 @@
                     :key="imageIndex"
                   >
                     <img
-                      :src="'http://192.168.80.124/images/' + image"
+                      :src="'http://192.168.80.103/images/' + image"
                       class="card-img-top"
                       alt="Not Found"
                     />
@@ -108,7 +108,7 @@ export default {
   methods: {
     getProductData() {
       axios
-        .get(`http://192.168.80.124/api/product/${this.productId}/show`)
+        .get(`http://192.168.80.103/api/product/${this.productId}/show`)
         .then((res) => {
           console.log(res.data.index)
           this.product = res.data.index

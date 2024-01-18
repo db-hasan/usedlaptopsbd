@@ -66,29 +66,46 @@
           v-model="model.products.product_des"
         />
       </div>
-      <div class="col-12 pb-3">
-        <div class="pb-2 w-25" v-if="product && product.product_img">
-          <div v-for="(image, imageIndex) in JSON.parse(product.product_img)" :key="imageIndex">
-            <div class="">
-              <input
-                type="file"
-                class="form-control w-100"
-                id="product_img"
-                ref="productFile"
-                multiple
-                @change="handleFileObject()"
-              />
-              <img
-                :src="'http://192.168.80.124/images/' + image"
-                class="card-img-top w-25"
-                alt="Not Found"
-              />
+
+      <div class="col-md-12">
+        <div class="pb-2" v-if="model.products && model.products.product_img && model.products.product_img.length > 0">
+          <div
+              v-for="(image, imageIndex) in JSON.parse(model.products.product_img)"
+              :key="imageIndex"
+            >
+            <div class="d-flex">
+              <div class="pe-2">
+                <input
+                  type="file"
+                  class="form-control"
+                  id="product_img"
+                  ref="productFile"
+                  @change="handleFileObject()"
+                /> 
+              </div>
+              <div class="">
+                <img
+                  :src="'http://192.168.80.103/images/' + image"
+                  class="card-img-top w-25"
+                  alt="Not Found"
+                />
+              </div>
             </div>
           </div>
         </div>
         <div v-else>Loading...</div>
+      </div>
 
-        <!-- <label for="product_img" class="form-label">Images<span class="text-danger">*</span></label>
+
+      
+      <div class="col-12">
+        <button type="button" class="btn btn-primary" @click="updateProducts">Update</button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<!-- <label for="product_img" class="form-label">Images<span class="text-danger">*</span></label>
         <input
           type="file"
           class="form-control"
@@ -97,14 +114,6 @@
           multiple
           @change="handleFileObject()"
         /> -->
-      </div>
-
-      <div class="col-12">
-        <button type="button" class="btn btn-primary" @click="updateProducts">Update</button>
-      </div>
-    </div>
-  </div>
-</template>
 
 <script>
 import axios from 'axios'
@@ -112,7 +121,6 @@ import axios from 'axios'
 export default {
   data() {
     return {
-      products: null,
       productId: '',
       errorList: '',
       model: {
@@ -129,16 +137,17 @@ export default {
     }
   },
   mounted() {
-    this.productId = this.$route.params.id
-    this.getProductData(this.$route.params.id)
+    this.productId = this.$route.params.id;
+    this.getProductData(this.$route.params.id);
   },
   methods: {
     getProductData(productId) {
       axios
-        .get(`http://192.168.80.124/api/product/${productId}/edit`)
+        .get(`http://192.168.80.103/api/product/${productId}/edit`)
         .then((res) => {
           console.log(res.data.index)
           this.model.products = res.data.index
+          
         })
         .catch(function (error) {
           if (error.response) {
@@ -147,20 +156,11 @@ export default {
             }
           }
         })
-      axios
-        .get(`http://192.168.80.124/api/product/${this.productId}/show`)
-        .then((res) => {
-          console.log(res.data.index)
-          this.product = res.data.index
-        })
-        .catch((error) => {
-          console.error('Error fetching product data:', error)
-        })
     },
     updateProducts() {
       var mythis = this
       axios
-        .put(`http://192.168.80.124/api/product/${this.productId}/edit`, this.model.products)
+        .put(`http://192.168.80.103/api/product/${this.productId}/edit`, this.model.products)
         .then((res) => {
           console.log(res.data)
           alert(res.data.message)
