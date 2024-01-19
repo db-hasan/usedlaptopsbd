@@ -67,7 +67,7 @@
         />
       </div>
 
-      <div class="">
+      <!-- <div class="">
         <div class="col-md-6 pb-3">
           <label for="product_img" class="form-label"
             >Images<span class="text-danger">*</span></label
@@ -81,7 +81,7 @@
             @change="handleFileObject()"
           />
         </div>
-        <!-- <div class="row">
+        <div class="row">
           <div class="col-12">
             <div
               class="pb-2 d-flex w-50"
@@ -104,41 +104,7 @@
             </div>
             <div v-else>Loading...</div>
           </div>
-        </div> -->
-      </div>
-
-      <!-- <div class="col-md-12">
-        <div
-          class="pb-2"
-          v-if="
-            model.products && model.products.product_img && model.products.product_img.length > 0
-          "
-        >
-          <div
-            v-for="(image, imageIndex) in JSON.parse(model.products.product_img)"
-            :key="imageIndex"
-          >
-            <div class="d-flex">
-              <div class="pe-2">
-                <input
-                  type="file"
-                  class="form-control"
-                  id="product_img"
-                  ref="productFile"
-                  @change="handleFileObject()"
-                />
-              </div>
-              <div class="">
-                <img
-                  :src="'http://127.0.0.1:8000/images/' + image"
-                  class="card-img-top w-25"
-                  alt="Not Found"
-                />
-              </div>
-            </div>
-          </div>
         </div>
-        <div v-else>Loading...</div>
       </div> -->
 
       <div class="col-12">
@@ -194,18 +160,12 @@ export default {
       const fileInput = this.$refs.productFile
       const files = fileInput.files
 
-      // Map the files to an array of objects with a name property
       this.model.products.product_img = Array.from(files).map((file) => ({ name: file.name, file }))
 
       console.log(this.model.products)
     },
     updateProducts() {
       var mythis = this
-
-      // this.model.products.product_img.forEach((fileObj, index) => {
-      //   this.model.products.append(`product_img[${index}]`, fileObj.file)
-      // })
-
       axios
         .put(`http://127.0.0.1:8000/api/product/${this.productId}/edit`, this.model.products)
         .then((res) => {

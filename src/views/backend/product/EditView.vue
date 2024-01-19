@@ -107,40 +107,6 @@
         </div>
       </div>
 
-      <!-- <div class="col-md-12">
-        <div
-          class="pb-2"
-          v-if="
-            model.products && model.products.product_img && model.products.product_img.length > 0
-          "
-        >
-          <div
-            v-for="(image, imageIndex) in JSON.parse(model.products.product_img)"
-            :key="imageIndex"
-          >
-            <div class="d-flex">
-              <div class="pe-2">
-                <input
-                  type="file"
-                  class="form-control"
-                  id="product_img"
-                  ref="productFile"
-                  @change="handleFileObject()"
-                />
-              </div>
-              <div class="">
-                <img
-                  :src="'http://127.0.0.1:8000/images/' + image"
-                  class="card-img-top w-25"
-                  alt="Not Found"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div v-else>Loading...</div>
-      </div> -->
-
       <div class="col-12">
         <button type="button" class="btn btn-primary" @click="updateProducts">Update</button>
       </div>
@@ -247,3 +213,36 @@ export default {
   }
 }
 </script>
+<!-- <div class="col-md-12">
+        <div
+          class="pb-2"
+          v-if="
+            model.products && model.products.product_img && model.products.product_img.length > 0
+          "
+        >
+          <div
+            v-for="(image, imageIndex) in JSON.parse(model.products.product_img)"
+            :key="imageIndex"
+          >
+            <div class="d-flex">
+              <div class="pe-2">
+                <input
+                  type="file"
+                  class="form-control"
+                  id="product_img"
+                  ref="productFile"
+                  @change="handleFileObject()"
+                />
+              </div>
+              <div class="">
+                <img
+                  :src="'http://127.0.0.1:8000/images/' + image"
+                  class="card-img-top w-25"
+                  alt="Not Found"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div v-else>Loading...</div>
+      </div> -->
